@@ -1,6 +1,6 @@
 # DevRAG
 
-DevRAG is an agentic retrieval-augmented generation framework for software-engineering question answering. It combines sparse retrieval, dense retrieval, entity matching, optional ontology-guided search, query planning, verification, and reflection in a reproducible pipeline intended for dataset construction and evaluation.
+DevRAG is an agentic retrieval-augmented generation framework for software-engineering question answering. It combines sparse retrieval, dense retrieval, entity matching, optional ontology-guided search, query planning, verification, and reflection in a reproducible pipeline intended for dataset evaluation.
 
 ## Repository Layout
 
@@ -102,11 +102,11 @@ The evaluator computes retrieval metrics from `relevance.jsonl` and can optional
 Run the default agentic-module ablations:
 
 ```bash
-python ablation_experiment.py --experiments full without_planner without_verifier without_reflector
+python ablation_experiment.py --experiments RealDev-QA without_planner without_verifier without_reflector
 ```
 
 Reflector budget comparisons:
 
 ```bash
-python ablation_experiment.py --experiments full turns_1 turns_2 turns_4
+python ablation_experiment.py --experiments RealDev-QA turns_1 turns_2 turns_4
 ```

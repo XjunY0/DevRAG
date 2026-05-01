@@ -18,7 +18,7 @@ from src.utils.logger import setup_logger
 logger = setup_logger(__name__)
 
 KS = [1, 5, 10, 20]
-DEFAULT_EXPERIMENTS = ["full", "without_planner", "without_verifier", "without_reflector"]
+DEFAULT_EXPERIMENTS = ["RealDev-QA", "without_planner", "without_verifier", "without_reflector"]
 
 
 def parse_args() -> argparse.Namespace:
@@ -46,7 +46,7 @@ def parse_args() -> argparse.Namespace:
         nargs="+",
         default=DEFAULT_EXPERIMENTS,
         help=(
-            "Built-ins: full, without_planner, without_verifier, without_reflector; "
+            "Built-ins: RealDev-QA, full, without_planner, without_verifier, without_reflector; "
             "aliases: no_planner, no_verifier, no_reflector; reflector budgets: "
             "turns_N, max_turns_N, reflector_turns_N, or max_turns=N."
         ),
@@ -237,7 +237,7 @@ def build_experiment_specs(experiment_names: Iterable[str]) -> List[Dict[str, An
 
 
 def parse_experiment_spec(raw_name: str) -> Dict[str, Any]:
-    if raw_name == "full":
+    if raw_name in {"RealDev-QA", "full"}:
         return {
             "name": raw_name,
             "agentic_modules": {},
